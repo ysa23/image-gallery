@@ -7,6 +7,7 @@
 	overflow: hidden;
 	margin: 40px;
 	box-shadow: 0 5px 10px #777;
+	position: relative;
 
 	transition: width 150ms, height 150ms, margin 150ms;
 
@@ -15,10 +16,28 @@
 		height: 100%;
 	}
 
+	.imageDescription {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		bottom: 0;
+		width: 100%;
+		height: 0;
+		transition: height 150ms;
+		background: rgba(255, 255, 255, 0.8);
+		visibility: hidden;
+	}
+
 	&:hover {
 		margin: 34px;
 		width: 312px;
 		height: 312px;
 		cursor: pointer;
+
+		.imageDescription {
+			height: 90px;
+			visibility: visible;
+		}
 	}
 }

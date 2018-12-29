@@ -7,6 +7,7 @@ const ImageTile = function (props) {
 	return (
 		<div className={classNames(styles.imageTile)}>
 			<img src={props.image.url} alt={props.image.description} onClick={props.onClick}/>
+			<div className={classNames(styles.imageDescription)}>{props.image.description}</div>
 		</div>
 	);
 };
