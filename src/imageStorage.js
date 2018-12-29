@@ -1,4 +1,4 @@
-var getImages = function (page) {
+const getImages = function (page) {
 	return {
 		images: [
 			{
