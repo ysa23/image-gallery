@@ -8,8 +8,17 @@
 	margin: 40px;
 	box-shadow: 5px 5px 10px #777;
 
+	transition: width 150ms, height 150ms, margin 150ms;
+
 	img {
 		width: auto;
 		height: 100%;
+	}
+
+	&:hover {
+		margin: 34px;
+		width: 312px;
+		height: 312px;
+		cursor: pointer;
 	}
 }
