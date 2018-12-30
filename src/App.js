@@ -13,7 +13,7 @@ const App = () => {
 				<header className={classNames(styles.header)}>Image Gallery</header>
 
 				<Route path="/" exact component={Gallery} />
-				<Route path="/image/:id" component={ImagePage} />
+				<Route path="/image/:id" render={ (props) =>  <ImagePage id={props.match.params.id} /> } />
 			</div>
 		</Router>
 		);
