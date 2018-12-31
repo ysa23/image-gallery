@@ -9,6 +9,7 @@ import EditableLabel from 'react-inline-editing';
 import imageDeleteAction from "./imageDeleteAction";
 import trash from './trash.svg';
 import exitImagePageAction from "./exitImagePageAction";
+import Image from '../../components/Image';
 
 class ImagePage extends Component {
 	constructor(props) {
@@ -55,7 +56,7 @@ class ImagePage extends Component {
 					</div>
 
 					<div className={classnames(styles.imageContainer)}>
-						<img src={ this.props.image.url } />
+						<Image url={this.props.image.url} alt={this.props.image.description} />
 					</div>
 				</div>
 			);
