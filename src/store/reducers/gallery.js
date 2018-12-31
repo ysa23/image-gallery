@@ -1,8 +1,9 @@
-import { APP_INIT, IMAGE_DESCRIPTION_UPDATED, IMAGE_DELETED } from "../actionTypes";
+import {APP_INIT, IMAGE_DESCRIPTION_UPDATED, IMAGE_DELETED, IMAGE_PAGE_INIT} from "../actionTypes";
 
 
 const initialState = {
-	images: []
+	images: [],
+	currentImage: null
 }
 
 export default function(state = initialState, action) {
@@ -12,6 +13,13 @@ export default function(state = initialState, action) {
 				...state,
 				images: action.images
 			};
+
+		case IMAGE_PAGE_INIT:
+			return {
+				...state,
+				currentImage: action.image
+			};
+
 		case IMAGE_DESCRIPTION_UPDATED:
 			console.log('IMAGE DESCRIPTION UPDATED triggered');
 			return state;
