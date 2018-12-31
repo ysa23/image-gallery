@@ -11,7 +11,7 @@ function validateTree(node, min, max) {
 
 	const isLeftValid = validateTree(node.left, min, node.value);
 	const isRightValid = validateTree(node.right, node.value, max);
-	
+
 	return isLeftValid && isRightValid;
 }
 
