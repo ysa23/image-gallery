@@ -21,8 +21,15 @@ export default function(state = initialState, action) {
 			};
 
 		case IMAGE_DESCRIPTION_UPDATED:
-			console.log('IMAGE DESCRIPTION UPDATED triggered');
-			return state;
+			return {
+				...state,
+				currentImage: Object.assign(state.currentImage, { description: action.newDescription }),
+				images: state.images.map(x => {
+					if (x.id === action.imageId)
+						return Object.assign({}, x, { description: action.newDescription})
+					return x;
+				})
+			};
 
 		case IMAGE_DELETED:
 			console.log('IMAGE DELETED triggered');

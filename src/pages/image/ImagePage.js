@@ -3,22 +3,27 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './ImagePage.module.scss';
 import PropTypes from 'prop-types';
-import imageStorage from '../../imagesApi';
 import connect from "react-redux/es/connect/connect";
-import galleryInitAction from "../../appInitAction";
 import imagePageInitAction from './imagePageInitAction';
+import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
+import EditableLabel from 'react-inline-editing';
 
 class ImagePage extends Component {
 	constructor(props) {
 		super(props);
+
+		this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
 	}
 
 	componentDidMount() {
 		this.props.onInit(this.props.id);
 	}
 
-	validateDescription(text) {
-		return (text.length > 0);
+	onDescriptionChanged(text) {
+		if (text.length === 0)
+			return;
+
+		this.props.onImageDescriptionUpdate(this.props.image.id, text)
 	}
 
 	render() {
@@ -27,7 +32,8 @@ class ImagePage extends Component {
 				<div className={classnames(styles.imagePage)} >
 					<img src={ this.props.image.url } />
 					<div>{ this.props.image.id }</div>
-					<div>{ this.props.image.description} </div>
+					<EditableLabel text={this.props.image.description}
+						onFocusOut={this.onDescriptionChanged}/>
 					<Link to='/'>Back </Link>
 				</div>
 			);
@@ -53,7 +59,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		onInit: (imageId) => dispatch(imagePageInitAction(imageId)),
-		onImageDescriptionUpdate: (page) => {}
+		onImageDescriptionUpdate: (imageId, description) => dispatch(imageDescriptionUpdateAction(imageId, description))
 	};
 }
 
