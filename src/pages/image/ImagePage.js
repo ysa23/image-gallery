@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './ImagePage.module.scss';
 import PropTypes from 'prop-types';
-import connect from "react-redux/es/connect/connect";
+import { connect } from 'react-redux';
 import imagePageInitAction from './imagePageInitAction';
 import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
 import EditableLabel from 'react-inline-editing';

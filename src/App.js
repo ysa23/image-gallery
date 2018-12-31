@@ -8,7 +8,7 @@ import ImagePage from './pages/image/ImagePage';
 import galleryInitAction from "./appInitAction";
 
 
-class App extends Component {
+export class App extends Component {
 	componentDidMount() {
 		this.props.onGalleryInit(0)
 	}
