@@ -3,13 +3,8 @@ import { connect } from 'react-redux';
 import ImageTile from '../../components/ImageTile';
 import classNames from 'classnames';
 import styles from './Gallery.module.scss';
-import galleryInitAction from './galleryInitAction';
 
 class Gallery extends Component {
-	componentDidMount() {
-		this.props.onGalleryInit(0);
-	}
-
 	render() {
 		return (
 			<div className={classNames(styles.images)}>
@@ -27,10 +22,4 @@ function mapStateToProps(state) {
 	};
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		onGalleryInit: (page) => dispatch(galleryInitAction(page))
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
+export default connect(mapStateToProps, null)(Gallery);
