@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './ImagePage.module.scss';
 import PropTypes from 'prop-types';
@@ -53,11 +52,6 @@ class ImagePage extends Component {
 
 					<div className={classnames(styles.imageContainer)}>
 						<img src={ this.props.image.url } />
-						<Link to='/'>
-							<div className={classnames(styles.back)}>
-								Back
-							</div>
-						</Link>
 					</div>
 				</div>
 			);

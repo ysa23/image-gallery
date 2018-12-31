@@ -1,0 +1,35 @@
+.app {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+}
+
+div, span, a {
+	box-sizing: border-box;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	background: #4285f4;
+	height: 56px;
+	box-shadow: 5px 5px 15px #777;
+
+	.back {
+		width: 56px;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+
+		img {
+			width: 40px;
+			height: 40px;
+			margin-top: 7px;
+		}
+	}
+}
