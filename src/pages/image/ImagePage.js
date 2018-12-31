@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './ImagePage.module.scss';
 import PropTypes from 'prop-types';
-import imageStorage from '../../imageStorage';
+import imageStorage from '../../imagesApi';
 
 class ImagePage extends Component {
 	constructor(props) {

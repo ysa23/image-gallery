@@ -1,4 +1,4 @@
-import { GALLERY_INIT, IMAGE_UPDATED } from "../actionTypes";
+import { APP_INIT, IMAGE_DESCRIPTION_UPDATED, IMAGE_DELETED } from "../actionTypes";
 
 
 const initialState = {
@@ -7,14 +7,17 @@ const initialState = {
 
 export default function(state = initialState, action) {
 	switch (action.type) {
-		case GALLERY_INIT:
-			console.log(`GALLERY INIT triggered. ${JSON.stringify(action)}`);
+		case APP_INIT:
 			return {
 				...state,
 				images: action.images
 			};
-		case IMAGE_UPDATED:
-			console.log('IMAGE UPDATED triggered');
+		case IMAGE_DESCRIPTION_UPDATED:
+			console.log('IMAGE DESCRIPTION UPDATED triggered');
+			return state;
+
+		case IMAGE_DELETED:
+			console.log('IMAGE DELETED triggered');
 			return state;
 
 		default:

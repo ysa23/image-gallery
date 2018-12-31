@@ -34,13 +34,13 @@ const getImage = (imageId) => {
 	return Object.assign({}, images[imageIndex]);
 };
 
-const updateImage = (image) => {
-	const sourceImageIndex = findImageIndexById(image.id);
+const updateImageDescription = (imageId, imageDescription) => {
+	const sourceImageIndex = findImageIndexById(imageId);
 	if (sourceImageIndex === -1) {
 		return null;
 	}
 
-	images[sourceImageIndex] = image;
+	images[sourceImageIndex].description = imageDescription;
 };
 
 const findImageIndexById = (imageId) => {
@@ -49,6 +49,6 @@ const findImageIndexById = (imageId) => {
 
 export default {
 	getImages: getImages,
-	updateImage: updateImage,
+	updateImageDescription: updateImageDescription,
 	getImage: getImage
 }

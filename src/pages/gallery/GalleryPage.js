@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import ImageTile from '../../components/ImageTile';
 import classNames from 'classnames';
-import styles from './Gallery.module.scss';
+import styles from './GalleryPage.module.scss';
 
-class Gallery extends Component {
+class GalleryPage extends Component {
 	render() {
 		return (
 			<div className={classNames(styles.images)}>
@@ -22,4 +22,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, null)(Gallery);
+export default connect(mapStateToProps, null)(GalleryPage);

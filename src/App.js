@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.css';
-import Gallery from './pages/gallery/Gallery';
+import Gallery from './pages/gallery/GalleryPage';
 import ImagePage from './pages/image/ImagePage';
-import galleryInitAction from "./galleryInitAction";
+import galleryInitAction from "./appInitAction";
 
 
 class App extends Component {
