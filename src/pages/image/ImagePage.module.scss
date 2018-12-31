@@ -3,17 +3,26 @@ div, img, label, input {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+html, body, #root {
+	height: 100%;
+}
+
 .imagePage {
 	width: 100%;
 	height: auto;
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
+	flex-grow: 1;
 
 	.imageContainer {
 		margin: 30px;
 		flex-grow: 2;
 		box-shadow: -2px 0px 15px #777;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		img {
 			max-width: 100%;

@@ -36,6 +36,7 @@ class ImagePage extends Component {
 	}
 
 	render() {
+		console.log(this.props.image);
 		if (this.props.image != null) {
 			return (
 				<div className={classnames(styles.imagePage)} >
@@ -66,7 +67,7 @@ class ImagePage extends Component {
 
 ImagePage.propTypes = {
 	id: PropTypes.string,
-	onDelete: PropTypes.func.optional
+	onDeleted: PropTypes.func
 };
 
 function mapStateToProps(state) {
