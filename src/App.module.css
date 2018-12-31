@@ -2,6 +2,11 @@
 	text-align: center;
 }
 
+div, span, a {
+	box-sizing: border-box;
+}
+
+
 .header {
 	display: flex;
 	flex-direction: column;

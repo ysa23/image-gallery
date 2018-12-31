@@ -8,6 +8,7 @@ import imagePageInitAction from './imagePageInitAction';
 import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
 import EditableLabel from 'react-inline-editing';
 import imageDeleteAction from "./imageDeleteAction";
+import trash from './trash.svg';
 
 class ImagePage extends Component {
 	constructor(props) {
@@ -39,12 +40,25 @@ class ImagePage extends Component {
 		if (this.props.image != null) {
 			return (
 				<div className={classnames(styles.imagePage)} >
-					<img src={ this.props.image.url } />
-					<div>{ this.props.image.id }</div>
-					<EditableLabel text={this.props.image.description}
-						onFocusOut={this.onDescriptionChanged}/>
-					<div onClick={this.onDelete}>DELETE</div>
-					<Link to='/'>Back </Link>
+					<div className={classnames(styles.details)}>
+						<span className={classnames(styles.detailsTitle)}>Details</span>
+
+						<EditableLabel text={this.props.image.description}
+								   labelClassName={classnames(styles.descriptionLabel)}
+								   inputClassName={classnames(styles.descriptionInput)}
+								   onFocusOut={this.onDescriptionChanged}/>
+
+						<img className={classnames(styles.deleteIcon)} onClick={this.onDelete} src={trash}/>
+					</div>
+
+					<div className={classnames(styles.imageContainer)}>
+						<img src={ this.props.image.url } />
+						<Link to='/'>
+							<div className={classnames(styles.back)}>
+								Back
+							</div>
+						</Link>
+					</div>
 				</div>
 			);
 		}
@@ -58,7 +72,7 @@ class ImagePage extends Component {
 
 ImagePage.propTypes = {
 	id: PropTypes.string,
-	onDeleted: PropTypes.func.optional
+	onDelete: PropTypes.func.optional
 };
 
 function mapStateToProps(state) {

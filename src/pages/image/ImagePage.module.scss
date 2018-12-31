@@ -1,12 +1,77 @@
-
+div, img, label, input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 .imagePage {
 	width: 100%;
+	height: auto;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	align-items: stretch;
 
+	.imageContainer {
+		margin: 30px;
+		flex-grow: 2;
+		box-shadow: -2px 0px 15px #777;
 
-	img {
-		display: block;
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+
+	.back {
+
+	}
+
+	.details {
+		flex-grow: 1;
+		margin: 30px;
+		min-width: 200px;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		position: relative;
+
+		.detailsTitle {
+			font-size: calc(24px + 2vmin);
+			border-bottom: 1px solid #e7e7e7;
+			display: block;
+		}
+
+		input {
+			border: 1px solid #777;
+			box-shadow: 0px 0px 15px #E7E7E7;
+			font-size:16px;
+			width: 100%;
+			padding: 4px;
+		}
+
+		div {
+			margin-top: 20px;
+			text-align: left;
+		}
+
+		.descriptionLabel {
+			border: 1px solid #e7e7e7;
+			display: flex;
+			padding: 5px 5px 5px 5px;
+			background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMwIDMwIiB3aWR0aD0iNDgwcHgiIGhlaWdodD0iNDgwcHgiIGZpbGw9IiM0Mjg1ZjQiPg0KICAgIDxwYXRoIGQ9Ik0gMjIuODI4MTI1IDMgQyAyMi4zMTYzNzUgMyAyMS44MDQ1NjIgMy4xOTU0Mzc1IDIxLjQxNDA2MiAzLjU4NTkzNzUgTCAxOSA2IEwgMjQgMTEgTCAyNi40MTQwNjIgOC41ODU5Mzc1IEMgMjcuMTk1MDYyIDcuODA0OTM3NSAyNy4xOTUwNjIgNi41Mzg4MTI1IDI2LjQxNDA2MiA1Ljc1NzgxMjUgTCAyNC4yNDIxODggMy41ODU5Mzc1IEMgMjMuODUxNjg4IDMuMTk1NDM3NSAyMy4zMzk4NzUgMyAyMi44MjgxMjUgMyB6IE0gMTcgOCBMIDUuMjU5NzY1NiAxOS43NDAyMzQgQyA1LjI1OTc2NTYgMTkuNzQwMjM0IDYuMTc3NTMxMyAxOS42NTggNi41MTk1MzEyIDIwIEMgNi44NjE1MzEyIDIwLjM0MiA2LjU4IDIyLjU4IDcgMjMgQyA3LjQyIDIzLjQyIDkuNjQzODkwNiAyMy4xMjQzNTkgOS45NjI4OTA2IDIzLjQ0MzM1OSBDIDEwLjI4MTg5MSAyMy43NjIzNTkgMTAuMjU5NzY2IDI0Ljc0MDIzNCAxMC4yNTk3NjYgMjQuNzQwMjM0IEwgMjIgMTMgTCAxNyA4IHogTSA0IDIzIEwgMy4wNTY2NDA2IDI1LjY3MTg3NSBBIDEgMSAwIDAgMCAzIDI2IEEgMSAxIDAgMCAwIDQgMjcgQSAxIDEgMCAwIDAgNC4zMjgxMjUgMjYuOTQzMzU5IEEgMSAxIDAgMCAwIDQuMzM3ODkwNiAyNi45Mzk0NTMgTCA0LjM2MzI4MTIgMjYuOTMxNjQxIEEgMSAxIDAgMCAwIDQuMzY5MTQwNiAyNi45Mjc3MzQgTCA3IDI2IEwgNS41IDI0LjUgTCA0IDIzIHoiLz4NCjwvc3ZnPg0K');
+			background-size: 26px;
+			background-repeat: no-repeat;
+			background-position-x: right;
+			background-position-y: center;
+		}
+
+		.deleteIcon {
+			width: 100%;
+			padding: 2px;
+			height: 32px;
+			background: #FF283A;
+			border-radius: 5px;
+			position: absolute;
+			bottom: 0px;
+		}
 	}
 }
