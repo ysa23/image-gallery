@@ -1,4 +1,4 @@
-import {APP_INIT, IMAGE_DESCRIPTION_UPDATED, IMAGE_DELETED, IMAGE_PAGE_INIT} from "../actionTypes";
+import {APP_INIT, IMAGE_DESCRIPTION_UPDATED, IMAGE_DELETED, IMAGE_PAGE_INIT, IMAGE_PAGE_EXIT} from "../actionTypes";
 
 
 const initialState = {
@@ -36,6 +36,12 @@ export default function(state = initialState, action) {
 				...state,
 				currentImage: null,
 				images: state.images.filter(x => x.id != action.imageId)
+			};
+
+		case IMAGE_PAGE_EXIT:
+			return {
+				...state,
+				currentImage: null
 			};
 
 		default:

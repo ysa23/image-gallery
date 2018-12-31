@@ -1,5 +1,5 @@
 import target from './gallery';
-import { IMAGE_DELETED, IMAGE_DESCRIPTION_UPDATED, APP_INIT, IMAGE_PAGE_INIT } from '../actionTypes';
+import {IMAGE_DELETED, IMAGE_DESCRIPTION_UPDATED, APP_INIT, IMAGE_PAGE_INIT, IMAGE_PAGE_EXIT} from '../actionTypes';
 
 describe('Gallery reducer tests', () => {
 	test('APP_INIT, when APP_INIT action is called, set images property according to given images', () => {
@@ -99,5 +99,24 @@ describe('Gallery reducer tests', () => {
 		const result = target(currentState, action);
 
 		expect(result).toEqual(currentState);
+	});
+
+	test('IMAGE_PAGE_EXIT, initialize currentImage', () => {
+		const currentState = {
+			images: [
+				{id: 1, description: 'description'}
+			],
+			currentImage: { id: 1, description: 'description' },
+			test: '123'
+		};
+		const action = {
+			type: IMAGE_PAGE_EXIT
+		};
+
+		const result = target(currentState, action);
+
+		expect(result.images).toEqual([ { id: 1, description: 'description' } ]);
+		expect(result.currentImage).toEqual(null);
+		expect(result.test).toEqual('123');
 	})
 });

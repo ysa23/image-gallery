@@ -8,6 +8,7 @@ import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
 import EditableLabel from 'react-inline-editing';
 import imageDeleteAction from "./imageDeleteAction";
 import trash from './trash.svg';
+import exitImagePageAction from "./exitImagePageAction";
 
 class ImagePage extends Component {
 	constructor(props) {
@@ -21,6 +22,10 @@ class ImagePage extends Component {
 		this.props.onInit(this.props.id);
 	}
 
+	componentWillUnmount() {
+		this.props.onExit();
+	}
+
 	onDescriptionChanged(text) {
 		if (text.length === 0)
 			return;
@@ -31,12 +36,11 @@ class ImagePage extends Component {
 	onDelete() {
 		this.props.onImageDelete(this.props.id);
 
-		// This should come after await/ in done
+		// This should come after await or in done
 		this.props.onDeleted();
 	}
 
 	render() {
-		console.log(this.props.image);
 		if (this.props.image != null) {
 			return (
 				<div className={classnames(styles.imagePage)} >
@@ -45,7 +49,6 @@ class ImagePage extends Component {
 
 						<EditableLabel text={this.props.image.description}
 								   labelClassName={classnames(styles.descriptionLabel)}
-								   inputClassName={classnames(styles.descriptionInput)}
 								   onFocusOut={this.onDescriptionChanged}/>
 
 						<img className={classnames(styles.deleteIcon)} onClick={this.onDelete} src={trash}/>
@@ -80,7 +83,8 @@ function mapDispatchToProps(dispatch) {
 	return {
 		onInit: (imageId) => dispatch(imagePageInitAction(imageId)),
 		onImageDescriptionUpdate: (imageId, description) => dispatch(imageDescriptionUpdateAction(imageId, description)),
-		onImageDelete: (imageId) => dispatch(imageDeleteAction(imageId))
+		onImageDelete: (imageId) => dispatch(imageDeleteAction(imageId)),
+		onExit: () => dispatch(exitImagePageAction())
 	};
 }
 
