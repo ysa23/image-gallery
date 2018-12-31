@@ -4,7 +4,7 @@ import { IMAGE_PAGE_INIT } from '../../store/actionTypes';
 import storage from '../../api/imagesApi';
 jest.mock('../../api/imagesApi');
 
-test('imagePageInitAction, when called, returns IMAGE_PAGE_INIT action type with images from server', () => {
+test('imagePageInitAction, when called, returns IMAGE_PAGE_INIT action type with image from server', () => {
 	const image = { id: '1' };
 	setImage(image);
 
