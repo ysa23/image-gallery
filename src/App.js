@@ -20,7 +20,8 @@ class App extends Component {
 					<header className={classNames(styles.header)}>Image Gallery</header>
 
 					<Route path="/" exact component={Gallery} />
-					<Route path="/image/:id" render={ (props) =>  <ImagePage id={props.match.params.id} /> } />
+					<Route path="/image/:id" render={ (props) =>
+						<ImagePage id={props.match.params.id} onDeleted={() => props.history.replace('/')} />} />
 				</div>
 			</Router>
 		);

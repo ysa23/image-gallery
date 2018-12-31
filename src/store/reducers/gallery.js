@@ -32,8 +32,11 @@ export default function(state = initialState, action) {
 			};
 
 		case IMAGE_DELETED:
-			console.log('IMAGE DELETED triggered');
-			return state;
+			return {
+				...state,
+				currentImage: null,
+				images: state.images.filter(x => x.id != action.imageId)
+			};
 
 		default:
 			console.warn(`Non existing action triggered: ${JSON.stringify(action)}`);

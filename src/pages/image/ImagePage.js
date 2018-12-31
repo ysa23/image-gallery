@@ -7,12 +7,14 @@ import connect from "react-redux/es/connect/connect";
 import imagePageInitAction from './imagePageInitAction';
 import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
 import EditableLabel from 'react-inline-editing';
+import imageDeleteAction from "./imageDeleteAction";
 
 class ImagePage extends Component {
 	constructor(props) {
 		super(props);
 
 		this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
+		this.onDelete = this.onDelete.bind(this);
 	}
 
 	componentDidMount() {
@@ -26,6 +28,13 @@ class ImagePage extends Component {
 		this.props.onImageDescriptionUpdate(this.props.image.id, text)
 	}
 
+	onDelete() {
+		this.props.onImageDelete(this.props.id);
+
+		// This should come after await/ in done
+		this.props.onDeleted();
+	}
+
 	render() {
 		if (this.props.image != null) {
 			return (
@@ -34,6 +43,7 @@ class ImagePage extends Component {
 					<div>{ this.props.image.id }</div>
 					<EditableLabel text={this.props.image.description}
 						onFocusOut={this.onDescriptionChanged}/>
+					<div onClick={this.onDelete}>DELETE</div>
 					<Link to='/'>Back </Link>
 				</div>
 			);
@@ -47,7 +57,8 @@ class ImagePage extends Component {
 }
 
 ImagePage.propTypes = {
-	id: PropTypes.number
+	id: PropTypes.string,
+	onDeleted: PropTypes.func.optional
 };
 
 function mapStateToProps(state) {
@@ -59,7 +70,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		onInit: (imageId) => dispatch(imagePageInitAction(imageId)),
-		onImageDescriptionUpdate: (imageId, description) => dispatch(imageDescriptionUpdateAction(imageId, description))
+		onImageDescriptionUpdate: (imageId, description) => dispatch(imageDescriptionUpdateAction(imageId, description)),
+		onImageDelete: (imageId) => dispatch(imageDeleteAction(imageId))
 	};
 }
 

@@ -43,6 +43,14 @@ const updateImageDescription = (imageId, imageDescription) => {
 	images[sourceImageIndex].description = imageDescription;
 };
 
+const deleteImage = (imageId) => {
+	const imageIndex = findImageIndexById(imageId);
+	if (imageIndex === -1)
+		return;
+
+	images.splice(imageIndex, 1);
+};
+
 const findImageIndexById = (imageId) => {
 	return images.findIndex(x => x.id === imageId);
 };
@@ -50,5 +58,6 @@ const findImageIndexById = (imageId) => {
 export default {
 	getImages: getImages,
 	updateImageDescription: updateImageDescription,
-	getImage: getImage
+	getImage: getImage,
+	deleteImage: deleteImage
 }
