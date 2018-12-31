@@ -35,7 +35,7 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				currentImage: null,
-				images: state.images.filter(x => x.id != action.imageId)
+				images: state.images.filter(x => x.id !== action.imageId)
 			};
 
 		case IMAGE_PAGE_EXIT:
