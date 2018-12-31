@@ -10,16 +10,9 @@ function validateTree(node, min, max) {
 		return false;
 
 	const isLeftValid = validateTree(node.left, min, node.value);
-
-	if (!isLeftValid || (node.left !== undefined && node.left.value > node.value))
-		return false;
-
 	const isRightValid = validateTree(node.right, node.value, max);
-
-	if (!isRightValid || (node.right !== undefined && node.right.value < node.value))
-		return false;
-
-	return true;
+	
+	return isLeftValid && isRightValid;
 }
 
 export default (tree) => {
