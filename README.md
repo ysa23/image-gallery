@@ -18,7 +18,14 @@ yarn start
 yarn test
 ```
 
+## Challenges
+The major challenge with this task was to handle the navigation in conjunction with Redux.
+Eventually I chose to keep the navigation on a URL level and not to manage it in Redux, where in a more complex application I'll probably integrate these two to keep a coherent navigation stack.
+
+Folder structure is an hybrid between type and feature folders, where for Redux I chose to keep the reducer in its own folder where the store is configured, while action creators are defined according to usage.
+
 ## Still missing
 * Integration with eslint
 * Storybook
 * Transitions between the screens
+* Tests for UI components (integration with Redux or splitting to smart and dump components)
