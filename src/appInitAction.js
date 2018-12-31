@@ -1,5 +1,5 @@
 import { APP_INIT } from './store/actionTypes';
-import storage from './imagesApi';
+import storage from './api/imagesApi';
 
 export default (page) => {
 	const images = storage.getImages(page);

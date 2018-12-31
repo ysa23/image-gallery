@@ -1,4 +1,4 @@
-import imagesApi from '../../imagesApi';
+import imagesApi from '../../api/imagesApi';
 import { IMAGE_PAGE_INIT } from '../../store/actionTypes';
 
 export default (imageId) => {

@@ -1,4 +1,4 @@
-import imagesApi from '../../imagesApi';
+import imagesApi from '../../api/imagesApi';
 import { IMAGE_DELETED } from '../../store/actionTypes';
 
 export default (imageId) => {
