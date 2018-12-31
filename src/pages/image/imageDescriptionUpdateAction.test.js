@@ -14,7 +14,3 @@ test('imageDescriptionUpdateAction, when called, returns IMAGE_DESCRIPTION_UPDAT
 
 	expect(storage.updateImageDescription).toBeCalledWith(1, "new description");
 });
-
-function setImage(image) {
-	storage.getImage.mockImplementationOnce(id => image);
-}
