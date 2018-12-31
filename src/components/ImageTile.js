@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './ImageTile.module.scss';
 import classNames from 'classnames';
+import Image from './Image';
 
 const ImageTile = function (props) {
 	return (
 		<Link to={ `/image/${props.image.id}` }>
 			<div className={classNames(styles.imageTile)}>
-				<img src={props.image.url} alt={props.image.description} onClick={props.onClick}/>
+				<Image url={props.image.url} width={298} height={298} onClick={props.onClick} alt={props.image.description}/>
 				<div className={classNames(styles.imageDescription)}>{props.image.description}</div>
 			</div>
 		</Link>
