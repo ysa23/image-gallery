@@ -17,3 +17,8 @@ yarn start
 ```
 yarn test
 ```
+
+## Still missing
+* Integration with eslint
+* Storybook
+* Transitions between the screens
