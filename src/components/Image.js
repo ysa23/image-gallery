@@ -10,9 +10,9 @@ const Image = (props) => {
 
 Image.propTypes = {
 	url: PropTypes.string,
-	alt: PropTypes.string.optional,
-	width: PropTypes.number.optional,
-	height: PropTypes.number.optional
+	alt: PropTypes.string,
+	width: PropTypes.number,
+	height: PropTypes.number
 };
 
 export default Image;
