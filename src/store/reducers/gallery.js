@@ -6,27 +6,19 @@ const initialState = {
 	currentImage: null
 };
 
+const reducers = {};
+reducers[APP_INIT] = appInit;
+reducers[IMAGE_PAGE_INIT] = imagePageInit;
+reducers[IMAGE_DESCRIPTION_UPDATED] = imageDescriptionUpdated;
+reducers[IMAGE_DELETED] = imageDeleted;
+reducers[IMAGE_PAGE_EXIT] = imagePageExit;
+
 export default function(state = initialState, action) {
-	switch (action.type) {
-		case APP_INIT:
-			return appInit(state, action);
+	const reducer = reducers[action.type];
+	if (reducer === undefined)
+		return state;
 
-		case IMAGE_PAGE_INIT:
-			return imagePageInit(state, action);
-
-		case IMAGE_DESCRIPTION_UPDATED:
-			return imageDescriptionUpdated(state, action);
-
-		case IMAGE_DELETED:
-			return imageDeleted(state, action);
-
-		case IMAGE_PAGE_EXIT:
-			return imagePageExit(state);
-
-		default:
-			console.warn(`Non existing action triggered: ${JSON.stringify(action)}`);
-			return state;
-	}
+	return reducer(state, action);
 }
 
 function appInit(state, action) {
