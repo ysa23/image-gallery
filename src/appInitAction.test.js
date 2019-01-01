@@ -4,13 +4,16 @@ import { APP_INIT } from './store/actionTypes';
 import { getImages } from './api/imagesApi';
 jest.mock('./api/imagesApi');
 
-test('appInitAction, when called, returns APP_INIT action type with images from server', () => {
+test('appInitAction, when called, returns APP_INIT action type with images from server', async () => {
+	const dispatch = jest.fn();
 	const images = setImages();
 
-	const result = target(0);
+	await target(0)(dispatch);
 
-	expect(result.type).toEqual(APP_INIT);
-	expect(result.images).toEqual(images);
+	expect(dispatch).toBeCalledWith( {
+		type: APP_INIT,
+		images: images
+	});
 });
 
 function setImages() {
@@ -20,5 +23,9 @@ function setImages() {
 		{ id: '3' }
 	];
 
-	getImages.mockImplementationOnce(page => images);
+	getImages.mockImplementationOnce(page => {
+		return { images: images }
+	});
+
+	return images;
 }

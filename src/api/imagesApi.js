@@ -62,11 +62,12 @@ const images = [
 ];
 
 
-export function getImages(page) {
-	return {
-		// Create a copy of the original array to simulate server deserialization
-		images: images.map(x => Object.assign({}, x))
-	};
+export async function getImages(page) {
+	return new Promise(resolve =>
+		resolve({
+			// Create a copy of the original array to simulate server deserialization
+			images: images.map(x => Object.assign({}, x))
+		}));
 }
 
 export function getImage(imageId) {
