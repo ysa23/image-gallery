@@ -6,12 +6,13 @@ const initialState = {
 	currentImage: null
 };
 
-const reducers = {};
-reducers[APP_INIT] = appInit;
-reducers[IMAGE_PAGE_INIT] = imagePageInit;
-reducers[IMAGE_DESCRIPTION_UPDATED] = imageDescriptionUpdated;
-reducers[IMAGE_DELETED] = imageDeleted;
-reducers[IMAGE_PAGE_EXIT] = imagePageExit;
+const reducers = {
+	[APP_INIT]: appInit,
+	[IMAGE_PAGE_INIT]: imagePageInit,
+	[IMAGE_DESCRIPTION_UPDATED]: imageDescriptionUpdated,
+	[IMAGE_DELETED]: imageDeleted,
+	[IMAGE_PAGE_EXIT]: imagePageExit
+};
 
 export default function(state = initialState, action) {
 	const reducer = reducers[action.type];
