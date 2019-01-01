@@ -1,17 +1,20 @@
 import target from './imagePageInitAction';
 
-import { IMAGE_PAGE_INIT } from '../../store/actionTypes';
+import {IMAGE_PAGE_INIT} from '../../store/actionTypes';
 import { getImage } from '../../api/imagesApi';
 jest.mock('../../api/imagesApi');
 
-test('imagePageInitAction, when called, returns IMAGE_PAGE_INIT action type with image from server', () => {
+test('imagePageInitAction, when called, returns IMAGE_PAGE_INIT action type with image from server', async () => {
 	const image = { id: '1' };
 	setImage(image);
+	const dispatch = jest.fn();
 
-	const result = target(0);
+	await target(1)(dispatch);
 
-	expect(result.type).toEqual(IMAGE_PAGE_INIT);
-	expect(result.image).toEqual(image);
+	expect(dispatch).toBeCalledWith( {
+		type: IMAGE_PAGE_INIT,
+		image: image
+	});
 });
 
 function setImage(image) {

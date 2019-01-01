@@ -70,14 +70,17 @@ export async function getImages(page) {
 		}));
 }
 
-export function getImage(imageId) {
-	const imageIndex = findImageIndexById(imageId);
-	if (imageIndex === -1) {
-		return null;
-	}
+export async function getImage(imageId) {
+	return new Promise(resolve => {
+		const imageIndex = findImageIndexById(imageId);
+		if (imageIndex === -1) {
+			resolve(null);
+			return;
+		}
 
-	// Create a copy of the original array to simulate server deserialization
-	return Object.assign({}, images[imageIndex]);
+		// Create a copy of the original array to simulate server deserialization
+		resolve(Object.assign({}, images[imageIndex]));
+	});
 }
 
 export function updateImageDescription(imageId, imageDescription) {

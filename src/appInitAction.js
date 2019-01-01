@@ -5,7 +5,7 @@ export default (page) => {
 	return async dispatch => {
 		const images = await getImages(page);
 
-		return dispatch({
+		dispatch({
 			type: APP_INIT,
 			images: images.images
 		});
