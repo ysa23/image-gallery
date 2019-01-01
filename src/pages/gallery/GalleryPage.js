@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import ImageTile from '../../components/ImageTile';
 import classNames from 'classnames';
 import styles from './GalleryPage.module.scss';
@@ -16,10 +16,12 @@ class GalleryPage extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		images: state.gallery.images
-	};
-}
+GalleryPage.propTypes = {
+	images: PropTypes.arrayOf(PropTypes.shape({
+			id: PropTypes.string,
+			url: PropTypes.string,
+			description: PropTypes.string
+		}))
+};
 
-export default connect(mapStateToProps, null)(GalleryPage);
+export default GalleryPage;

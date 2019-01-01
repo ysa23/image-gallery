@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.scss';
-import Gallery from './pages/gallery/GalleryPage';
+import GalleryPageContainer from './pages/gallery/GalleryPageContainer';
 import ImagePageContainer from './pages/image/ImagePageContainer';
 import galleryInitAction from "./appInitAction";
 import back from './back.svg';
@@ -33,7 +33,7 @@ export class App extends Component {
 						Image Gallery
 					</header>
 
-					<Route path="/" exact component={Gallery} />
+					<Route path="/" exact component={GalleryPageContainer} />
 					<Route path="/image/:id" render={ (props) =>
 						<ImagePageContainer id={props.match.params.id} onDeleted={() => props.history.replace('/')} />} />
 				</div>
