@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import styles from './ImagePage.module.scss';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import imagePageInitAction from './imagePageInitAction';
-import imageDescriptionUpdateAction from './imageDescriptionUpdateAction';
 import EditableLabel from 'react-inline-editing';
-import imageDeleteAction from "./imageDeleteAction";
 import trash from './trash.svg';
-import exitImagePageAction from "./exitImagePageAction";
 import Image from '../../components/Image';
 
 class ImagePage extends Component {
@@ -71,22 +66,19 @@ class ImagePage extends Component {
 
 ImagePage.propTypes = {
 	id: PropTypes.string,
-	onDeleted: PropTypes.func
+	image: PropTypes.shape({
+		id: PropTypes.string,
+		url: PropTypes.string,
+		description: PropTypes.string
+	}),
+	onDeleted: PropTypes.func,
+	onInit: PropTypes.func,
+	onImageDescriptionUpdate: PropTypes.func,
+	onImageDelete: PropTypes.func,
+	onExit: PropTypes.func
 };
 
-function mapStateToProps(state) {
-	return {
-		image: state.gallery.currentImage
-	};
-}
+export default ImagePage;
 
-function mapDispatchToProps(dispatch) {
-	return {
-		onInit: (imageId) => dispatch(imagePageInitAction(imageId)),
-		onImageDescriptionUpdate: (imageId, description) => dispatch(imageDescriptionUpdateAction(imageId, description)),
-		onImageDelete: (imageId) => dispatch(imageDeleteAction(imageId)),
-		onExit: () => dispatch(exitImagePageAction())
-	};
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImagePage);
+

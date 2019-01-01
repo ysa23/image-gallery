@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.scss';
 import Gallery from './pages/gallery/GalleryPage';
-import ImagePage from './pages/image/ImagePage';
+import ImagePageContainer from './pages/image/ImagePageContainer';
 import galleryInitAction from "./appInitAction";
 import back from './back.svg';
 
@@ -35,7 +35,7 @@ export class App extends Component {
 
 					<Route path="/" exact component={Gallery} />
 					<Route path="/image/:id" render={ (props) =>
-						<ImagePage id={props.match.params.id} onDeleted={() => props.history.replace('/')} />} />
+						<ImagePageContainer id={props.match.params.id} onDeleted={() => props.history.replace('/')} />} />
 				</div>
 			</Router>
 		);
