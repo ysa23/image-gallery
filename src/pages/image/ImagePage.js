@@ -52,7 +52,7 @@ class ImagePage extends Component {
 								   labelClassName={classnames(styles.descriptionLabel)}
 								   onFocusOut={this.onDescriptionChanged}/>
 
-						<img className={classnames(styles.deleteIcon)} onClick={this.onDelete} src={trash} alt="delete image"/>
+						<img className={classnames(styles.deleteIcon)} onClick={this.onDelete} src={trash} alt="delete"/>
 					</div>
 
 					<div className={classnames(styles.imageContainer)}>
