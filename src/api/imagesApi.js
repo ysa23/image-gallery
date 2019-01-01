@@ -62,7 +62,7 @@ const images = [
 ];
 
 
-export async function getImages(page) {
+export function getImages(page) {
 	return new Promise(resolve =>
 		resolve({
 			// Create a copy of the original array to simulate server deserialization
@@ -70,7 +70,7 @@ export async function getImages(page) {
 		}));
 }
 
-export async function getImage(imageId) {
+export function getImage(imageId) {
 	return new Promise(resolve => {
 		const imageIndex = findImageIndexById(imageId);
 		if (imageIndex === -1) {
@@ -83,7 +83,7 @@ export async function getImage(imageId) {
 	});
 }
 
-export async function updateImageDescription(imageId, imageDescription) {
+export function updateImageDescription(imageId, imageDescription) {
 	return new Promise(resolve => {
 		const sourceImageIndex = findImageIndexById(imageId);
 		if (sourceImageIndex === -1) {
@@ -95,7 +95,7 @@ export async function updateImageDescription(imageId, imageDescription) {
 	});
 }
 
-export async function deleteImage(imageId) {
+export function deleteImage(imageId) {
 	return new Promise(resolve => {
 		const imageIndex = findImageIndexById(imageId);
 		if (imageIndex === -1)
