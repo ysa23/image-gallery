@@ -9,7 +9,7 @@ class GalleryPage extends Component {
 		return (
 			<div className={classNames(styles.images)}>
 				{this.props.images.map(function (image) {
-					return <ImageTile image={image} onClick={console.log(image.id)}/>
+					return <ImageTile key={image.id} image={image} />
 				})}
 			</div>
 		);
