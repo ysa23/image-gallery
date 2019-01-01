@@ -1,7 +1,7 @@
 import target from './appInitAction';
 
 import { APP_INIT } from './store/actionTypes';
-import storage from './api/imagesApi';
+import { getImages } from './api/imagesApi';
 jest.mock('./api/imagesApi');
 
 test('appInitAction, when called, returns APP_INIT action type with images from server', () => {
@@ -18,7 +18,7 @@ function setImages() {
 		{ id: '1' },
 		{ id: '2' },
 		{ id: '3' }
-	]
+	];
 
-	storage.getImages.mockImplementationOnce(page => images);
+	getImages.mockImplementationOnce(page => images);
 }

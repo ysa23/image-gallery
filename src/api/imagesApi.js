@@ -62,14 +62,14 @@ const images = [
 ];
 
 
-const getImages = (page) => {
+export function getImages(page) {
 	return {
 		// Create a copy of the original array to simulate server deserialization
 		images: images.map(x => Object.assign({}, x))
 	};
-};
+}
 
-const getImage = (imageId) => {
+export function getImage(imageId) {
 	const imageIndex = findImageIndexById(imageId);
 	if (imageIndex === -1) {
 		return null;
@@ -77,32 +77,25 @@ const getImage = (imageId) => {
 
 	// Create a copy of the original array to simulate server deserialization
 	return Object.assign({}, images[imageIndex]);
-};
+}
 
-const updateImageDescription = (imageId, imageDescription) => {
+export function updateImageDescription(imageId, imageDescription) {
 	const sourceImageIndex = findImageIndexById(imageId);
 	if (sourceImageIndex === -1) {
 		return null;
 	}
 
 	images[sourceImageIndex].description = imageDescription;
-};
+}
 
-const deleteImage = (imageId) => {
+export function deleteImage(imageId) {
 	const imageIndex = findImageIndexById(imageId);
 	if (imageIndex === -1)
 		return;
 
 	images.splice(imageIndex, 1);
-};
+}
 
 const findImageIndexById = (imageId) => {
 	return images.findIndex(x => x.id === imageId);
 };
-
-export default {
-	getImages: getImages,
-	updateImageDescription: updateImageDescription,
-	getImage: getImage,
-	deleteImage: deleteImage
-}
