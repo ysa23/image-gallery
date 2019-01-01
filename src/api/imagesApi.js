@@ -83,13 +83,16 @@ export async function getImage(imageId) {
 	});
 }
 
-export function updateImageDescription(imageId, imageDescription) {
-	const sourceImageIndex = findImageIndexById(imageId);
-	if (sourceImageIndex === -1) {
-		return null;
-	}
+export async function updateImageDescription(imageId, imageDescription) {
+	return new Promise(resolve => {
+		const sourceImageIndex = findImageIndexById(imageId);
+		if (sourceImageIndex === -1) {
+			return null;
+		}
 
-	images[sourceImageIndex].description = imageDescription;
+		images[sourceImageIndex].description = imageDescription;
+		resolve();
+	});
 }
 
 export function deleteImage(imageId) {

@@ -1,16 +1,18 @@
 import target from './imageDescriptionUpdateAction';
 
-import { IMAGE_DESCRIPTION_UPDATED } from '../../store/actionTypes';
+import {IMAGE_DESCRIPTION_UPDATED} from '../../store/actionTypes';
 import { updateImageDescription } from '../../api/imagesApi';
 jest.mock('../../api/imagesApi');
 
-test('imageDescriptionUpdateAction, when called, returns IMAGE_DESCRIPTION_UPDATE action type with new description and update the server from', () => {
+test('imageDescriptionUpdateAction, when called, returns IMAGE_DESCRIPTION_UPDATE action type with new description and update the server from', async () => {
+	const dispatch = jest.fn();
 
-	const result = target(1, "new description");
+	await target(1, "new description")(dispatch);
 
-	expect(result.type).toEqual(IMAGE_DESCRIPTION_UPDATED);
-	expect(result.imageId).toEqual(1);
-	expect(result.newDescription).toEqual("new description");
-
+	expect(dispatch).toBeCalledWith( {
+		type: IMAGE_DESCRIPTION_UPDATED,
+		imageId: 1,
+		newDescription: "new description"
+	});
 	expect(updateImageDescription).toBeCalledWith(1, "new description");
 });
