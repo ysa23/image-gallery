@@ -24,7 +24,7 @@ export class App extends Component {
 								return (
 									<Link to="/">
 										<div className={classNames(styles.back)}>
-											<img src={back}/>
+											<img src={back} alt="back"/>
 										</div>
 									</Link>);
 							return null;
