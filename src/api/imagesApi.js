@@ -95,12 +95,16 @@ export async function updateImageDescription(imageId, imageDescription) {
 	});
 }
 
-export function deleteImage(imageId) {
-	const imageIndex = findImageIndexById(imageId);
-	if (imageIndex === -1)
-		return;
+export async function deleteImage(imageId) {
+	return new Promise(resolve => {
+		const imageIndex = findImageIndexById(imageId);
+		if (imageIndex === -1)
+			return;
 
-	images.splice(imageIndex, 1);
+		images.splice(imageIndex, 1);
+
+		resolve();
+	});
 }
 
 const findImageIndexById = (imageId) => {

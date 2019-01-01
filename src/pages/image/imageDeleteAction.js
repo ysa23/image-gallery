@@ -2,10 +2,12 @@ import { deleteImage } from '../../api/imagesApi';
 import { IMAGE_DELETED } from '../../store/actionTypes';
 
 export default (imageId) => {
-	deleteImage(imageId);
+	return async dispatch => {
+		await deleteImage(imageId);
 
-	return {
-		type: IMAGE_DELETED,
-		imageId: imageId
+		dispatch({
+			type: IMAGE_DELETED,
+			imageId: imageId
+		});
 	};
 }
