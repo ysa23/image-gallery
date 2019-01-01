@@ -26,6 +26,5 @@ Folder structure is an hybrid between type and feature folders, where for Redux 
 
 ## Still missing
 * Integration with eslint
-* Storybook
+* Storybook + Tests for UI components
 * Transitions between the screens
-* Tests for UI components (integration with Redux or splitting to smart and dump components)
